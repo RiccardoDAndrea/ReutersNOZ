@@ -41,18 +41,21 @@ def extract_articles_with_topics_and_split(file_path):
 
         return articles_data
     
+    
+    
 #------------------------------------------------------------------------------------------------------------------------------------------------
 
 def filter_data(dataframe):
     """
     desc
     """
+    
     train_df = dataframe[dataframe['split'] == "TRAIN"]
     test_df = dataframe[dataframe['split'] == "TEST"]
+    
     return train_df, test_df
 
 df = pd.read_csv("reuters_articles_with_split.csv")
-df = df.dropna()
 
 train_df, test_df = filter_data(df)
 
@@ -61,23 +64,26 @@ def train_split(dataframe):
     """
     desc
     """
-    X_train = dataframe.drop(columns=["topics","split"])
+    X_train = dataframe["text"]
     y_train = dataframe["topics"]
 
     return X_train, y_train
 
 X_train, y_train = train_split(train_df)
 
-print(X_train.shape, y_train.shape)
+#print(X_train.shape, y_train.shape)
 
 def test_split(dataframe):
     """
     desc
     """
-    X_test = dataframe.drop(columns=["topics","split"])
+    X_test = dataframe["text"]
     y_test = dataframe["topics"]
 
     return X_test, y_test
 
-X_test, y_test = test_split(train_df)
+X_test, y_test = test_split(test_df)
+
 print(X_test.shape, y_test.shape)
+
+
