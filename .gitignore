@@ -1,6 +1,6 @@
 # venv
 .env
 venv
-
 #Data
 reuters21578
+*.csv
