@@ -3,4 +3,4 @@
 venv
 #Data
 reuters21578
-*.csv
+reuters_articles_with_split.csv
