@@ -4,7 +4,17 @@ import re
 from bs4 import BeautifulSoup
 
 # Funktion zum Extrahieren von Artikeln + Topics + Train/Test-Split
-def extract_articles_with_topics_and_split(file_path, tags = [list]):
+def extract_articles_with_topics_and_split(file_path):
+    """
+    Extracts HTML code from all files according to the following criteria: 
+    body, topic, lewissplit.
+    Regex removes all special characters to get raw text 
+    Saved in a dataframe for further processing
+    
+    file_path:
+    ---
+    Path to files
+    """
     with open(file_path, "r", encoding="ISO-8859-1") as file:
         soup = BeautifulSoup(file.read(), "html.parser")
 
@@ -31,21 +41,4 @@ def extract_articles_with_topics_and_split(file_path, tags = [list]):
 
         return articles_data
 
-# Alle SGM-Dateien finden
-sgm_files = glob.glob("reuters21578/*.sgm")
 
-# Daten aus allen Dateien extrahieren
-all_articles = []
-
-for file_path in sgm_files:
-    articles = extract_articles_with_topics_and_split(file_path)
-    all_articles.extend(articles)
-
-# DataFrame erstellen
-df = pd.DataFrame(all_articles)
-
-# Ergebnis anzeigen
-
-# DataFrame als CSV speichern
-df.to_csv("reuters_articles_with_split.csv", index=False)
-df.tail(20)
