@@ -87,56 +87,5 @@ def model_evaluation(X_test_tfidf, y_test, model):
     accuracy = accuracy_score(y_test, y_pred)
     return accuracy
 
-# articles_list = all_articles(dir="reuters21578")  
-# df = create_df(articles_list)
-# df = data_preprocessing(df)
 
-# # # Prüfen, ob DataFrame gefüllt wurde
-# # if df.empty:
-# #     print("DataFrame empty.")
-# # else:
-# #     print("DataFrame created.")
-
-# # Train/Test-Split durchführen
-# train_df, test_df = filter_data(df)
-
-# # Trainings- und Testdaten vorbereiten
-# X_train, y_train = train_split(train_df)
-# X_test, y_test = test_split(test_df)
-
-# # TF-IDF Vektorisierung
-# X_train_tfidf, X_test_tfidf, vectorizer = vectorize(X_train, X_test)
-
-# # Modell trainieren
-# model = create_model(X_train_tfidf, y_train)
-
-# # Modell evaluieren
-# accuracy = model_evaluation(X_test_tfidf, y_test, model)
-
-# # Ergebnis ausgeben
-# print(f"Precision: {accuracy:.3f}")
-
-
-# # Beispieltext, den du vorhersagen möchtest
-# new_text = """
-#     Oper shr 38 cts vs 1.84 dlrs
-#     Oper net 973,000 vs 4,497,000
-#     Nine mths
-#     Oper shr 1.22 dlrs vs 1.31 dlrs
-#     Oper net 3,133,000 vs 3,410,000
-#     NOTE: Results exclude extraordinary gain from net loss  
-#     carryforward of 672,000 dlrs or 27 cts in 1987 3rd qtr, 918,000
-#     dlrs 38 cts in 1986 3rd qtr, and 1,071,000 dlrs or 44 cts in
-#     1987 nine months. 1986 results include 5.1 mln dlr gain from
-#     termination of defined benefit pension plan.
-#     """
-
-# # Schritt 1: Text in denselben numerischen Vektor umwandeln, der für das Training verwendet wurde
-# new_text_tfidf = vectorizer.transform([new_text])
-
-# # Schritt 2: Vorhersage des Themas mit dem trainierten Modell
-# predicted_topic = model.predict(new_text_tfidf)
-
-# # Ausgabe des vorhergesagten Themas
-# print(f"Vorhergesagtes Thema: {predicted_topic[0]}")
 

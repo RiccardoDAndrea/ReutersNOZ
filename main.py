@@ -43,17 +43,15 @@ print(f"Precision: {accuracy:.3f}")
 
 # Beispieltext, den du vorhersagen möchtest
 new_text = """
-    Pakistan and Sweden have signed a
-commodity exchange agreement for 88 mln dlrs each way, the
-Pakistan government announced.
-    Pakistan's exports under the agreement will include raw
-cotton, cotton products, cotton textiles, steel products,
-molasses, naphtha and fresh and dried fruits.
-    Swedish exports to Pakistan will include medical and
-laboratory equipment, electrical telecommunication equipment,
-diesel engine spares, mining and security equipment,
-road-building and construction machinery, fertilisers and palm
-oil.
+    Shr profit 11 cts vs loss 1.45 dlrs
+    Net profit 267,000 vs loss 3,458,000
+    Sales 23.6 mln vs 23.0 mln
+    First half
+    Shr loss 27 cts vs loss 1.91 dlrs
+    Net loss 633,000 vs loss 4,548,000
+    Sales 46.2 mln vs 49.7 mln
+    Avg shrs 2,382,000 vs 2,381,000
+    Backlog 26.1 mln vs 36.0 mln
     """
 
 # Schritt 1: Text in denselben numerischen Vektor umwandeln, der für das Training verwendet wurde
