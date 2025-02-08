@@ -2,11 +2,8 @@ import glob
 import pandas as pd
 import re
 from bs4 import BeautifulSoup
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
+
 # Function to import
 from functions import extract_articles_with_topics_and_split, all_articles, create_df, data_preprocessing, filter_data, train_split, test_split,vectorize, create_model, model_evaluation
 
