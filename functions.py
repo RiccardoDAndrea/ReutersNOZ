@@ -229,6 +229,23 @@ def create_model(X_train_tfidf, y_train):
 
 # Modell evaluieren
 def model_evaluation(X_test_tfidf, y_test, model):
+    """
+    Evaluates the performance of a trained model.
+
+    Parameters
+    ----------
+    X_test_tfidf : pandas DataFrame
+        TF-IDF vectorized testing text data.
+    y_test : pandas Series
+        Testing labels.
+    model : scikit-learn Classifier
+        The trained random forest classifier model.
+
+    Returns
+    -------
+    accuracy : float
+        Model accuracy.
+    """
     y_pred = model.predict(X_test_tfidf)
     accuracy = accuracy_score(y_test, y_pred)
     return accuracy

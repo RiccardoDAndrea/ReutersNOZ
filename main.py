@@ -34,17 +34,31 @@ accuracy = model_evaluation(X_test_tfidf, y_test, model)
 print(f"Accuracy: {accuracy:.3f}")
 
 
-# Beispieltext, den du vorhersagen möchtest
+# Beispieltext, der vorhergesagt werden soll
 new_text = """
-    Shr profit 11 cts vs loss 1.45 dlrs
-    Net profit 267,000 vs loss 3,458,000
-    Sales 23.6 mln vs 23.0 mln
-    First half
-    Shr loss 27 cts vs loss 1.91 dlrs
-    Net loss 633,000 vs loss 4,548,000
-    Sales 46.2 mln vs 49.7 mln
-    Avg shrs 2,382,000 vs 2,381,000
-    Backlog 26.1 mln vs 36.0 mln
+    Total food aid needs in 69 of the
+least developed countries declined in 1986/87, as requirments
+fell in many countries in Africa, the Middle East and Asia, the
+U.S. Agriculture Department said.
+    In a summary of its World Agriculture Report, the
+department said grain production in sub-Saharan Africa was a
+record high in 1986, with gains in almost every country.
+    However, food needs in Central America rose, worsened by
+drought-reduced crops and civil strife.
+    Record wheat production in 1986/87 is pushing global wheat
+consumption for food to a new high, and higher yielding
+varieties have been particularly effective where spring wheat
+is a common crop, it said.
+    However, may developing countries in tropical climates,
+such as Sub-Saharan Africa, Southeast Asia, and Central
+America, are not well adapted for wheat production, and
+improved varieties are not the answer to rising food needs, the
+department said.
+    World per capita consumption of vegetable oil will rise in
+1986/87 for the third straight year.
+    Soybean oil constitutes almost 30 pct of vegetable oil
+consumption, while palm oil is the most traded, the department
+said.
     """
 
 # Schritt 1: Text in denselben numerischen Vektor umwandeln, der für das Training verwendet wurde
@@ -54,8 +68,4 @@ new_text_tfidf = vectorizer.transform([new_text])
 predicted_topic = model.predict(new_text_tfidf)
 
 # Ausgabe des vorhergesagten Themas
-if new_text_tfidf.nnz == 0:
-    print("Kein relevantes Thema gefunden.")
-else:
-    predicted_topic = model.predict(new_text_tfidf)
-    print(f"Vorhergesagtes Thema: {predicted_topic[0]}")
+print(f"Vorhergesagtes Thema: {predicted_topic[0]}")
