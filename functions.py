@@ -128,15 +128,18 @@ def filter_data(dataframe):
 # Trainingsdaten vorbereiten
 def train_split(dataframe):
     """
-    Splits the data into dependent and independent variables
+    Splits the data into dependent and independent variables.
 
     Parameters
     ----------
-    dataframe : dataframe
-            Dataframe object
-    Returns:
-    ---
-    Two dataset
+    dataframe : pd.DataFrame
+        Input DataFrame to be split.
+
+    Returns
+    -------
+    tuple of pandas Series
+    A tuple containing two pandas Series: `X_train` (independent variable) and `y_train` (dependent 
+    variable).
     """
     X_train = dataframe["text"]  # Nur den Text verwenden!
     y_train = dataframe["topics"]
@@ -144,12 +147,44 @@ def train_split(dataframe):
 
 # Testdaten vorbereiten
 def test_split(dataframe):
+    """
+    Splits the data into dependent and independent variables for testing.
+
+    Parameters
+    ----------
+    dataframe : pd.DataFrame
+        Input DataFrame to be split.
+
+    Returns
+    -------
+    tuple of pandas Series
+    A tuple containing two pandas Series: `X_test` (independent variable) and `y_test` (dependent 
+    variable).
+    """
     X_test = dataframe["text"]  # Nur den Text verwenden!
     y_test = dataframe["topics"]
     return X_test, y_test
 
 # TF-IDF-Vektorisierung
 def vectorize(X_train, X_test):
+    """
+    Applies TF-IDF vectorization to the training and testing data.
+
+    Parameters
+    ----------
+    X_train : pandas Series
+        Training text data.
+    X_test : pandas Series
+        Testing text data.
+
+    Returns
+    -------
+    tuple of pandas DataFrame
+        A tuple containing three elements:
+            - `X_train_tfidf`: TF-IDF vectorized training data.
+            - `X_test_tfidf`: TF-IDF vectorized testing data.
+            - `vectorizer`: The trained TF-IDF vectorizer.
+    """
     vectorizer = TfidfVectorizer(max_features=5000, stop_words='english') 
     X_train_tfidf = vectorizer.fit_transform(X_train)
     X_test_tfidf = vectorizer.transform(X_test)
@@ -157,9 +192,32 @@ def vectorize(X_train, X_test):
 
 # Modell trainieren
 def create_model(X_train_tfidf, y_train):
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    """
+    Creates and trains a random forest classifier.
+
+    Parameters
+    ----------
+    X_train_tfidf : pandas DataFrame
+        TF-IDF vectorized training text data.
+    y_train : pandas Series
+        Training labels.
+
+    Returns
+    -------
+    scikit-learn Classifier
+        The trained random forest classifier model.
+    """
+    
+    # Hyperparameter-Tuning (optional)
+    # param_grid = {'n_estimators': [10, 50, 100], 'max_depth': [3, 5, 10]}
+    # grid_search = GridSearchCV(RandomForestClassifier(random_state=42), param_grid, cv=5)
+    # grid_search.fit(X_train_tfidf, y_train)  # Fit GridSearch with hyperparameter tuning
+    
+    model = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=None)  
     model.fit(X_train_tfidf, y_train)
+    
     return model
+
 
 # Modell evaluieren
 def model_evaluation(X_test_tfidf, y_test, model):

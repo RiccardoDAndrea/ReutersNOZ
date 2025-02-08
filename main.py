@@ -7,7 +7,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
-
 # Function to import
 from functions import extract_articles_with_topics_and_split, all_articles, create_df, data_preprocessing, filter_data, train_split, test_split,vectorize, create_model, model_evaluation
 
@@ -34,11 +33,8 @@ X_train_tfidf, X_test_tfidf, vectorizer = vectorize(X_train, X_test)
 # Modell trainieren
 model = create_model(X_train_tfidf, y_train)
 
-# Modell evaluieren
 accuracy = model_evaluation(X_test_tfidf, y_test, model)
-
-# Ergebnis ausgeben
-print(f"Precision: {accuracy:.3f}")
+print(f"Accuracy: {accuracy:.3f}")
 
 
 # Beispieltext, den du vorhersagen möchtest
@@ -61,4 +57,8 @@ new_text_tfidf = vectorizer.transform([new_text])
 predicted_topic = model.predict(new_text_tfidf)
 
 # Ausgabe des vorhergesagten Themas
-print(f"Vorhergesagtes Thema: {predicted_topic[0]}")
+if new_text_tfidf.nnz == 0:
+    print("Kein relevantes Thema gefunden.")
+else:
+    predicted_topic = model.predict(new_text_tfidf)
+    print(f"Vorhergesagtes Thema: {predicted_topic[0]}")
