@@ -1,6 +1,6 @@
 # venv
 .env
 venv
-
+myenv
 #Data
 nltk_data
