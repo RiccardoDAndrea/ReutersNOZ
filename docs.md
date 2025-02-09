@@ -25,9 +25,9 @@ Zu lange texte wiesen drauf hin das die Klassifikation nicht zutreffen waren da 
 
 ## **Verbesserungspotenzial**  
 
-Während der Bearbeitung wurde bewusst darauf verzichtet, Deep-Learning-Algorithmen zu verwenden, da diese sehr rechenintensiv sind. Zudem werden Deep-Learning-Modelle häufig in Cloud-Umgebungen eingesetzt, was insbesondere bei Skalierung zu hohen Kosten führen kann.  
+Während der Bearbeitung wurde bewusst darauf verzichtet, Deep-Learning-Algorithmen einzusetzen, da diese sehr rechenintensiv sind. Zudem werden Deep-Learning-Modelle häufig in Cloud-Umgebungen genutzt, was insbesondere bei Skalierung zu hohen Kosten führen kann.  
 
-Stattdessen fiel die Entscheidung auf den **Random Forest Algorithmus**, um zu überprüfen, ob mit einem weniger rechenintensiven Modell vergleichbare oder sogar bessere Ergebnisse erzielt werden können.  
+Stattdessen fiel die Entscheidung auf den **Random-Forest-Algorithmus**, um zu überprüfen, ob mit einem weniger rechenintensiven Modell vergleichbare oder sogar bessere Ergebnisse erzielt werden können.  
 
 Da die Bearbeitungszeit auf drei Stunden begrenzt war, konnte keine umfassende Datenanalyse durchgeführt werden. Mit mehr Zeit wäre eine detailliertere Untersuchung des Datensatzes möglich gewesen. Ein zentrales Problem war, dass viele Artikel keine zugewiesenen **"Topics"** hatten. Beim **Data Preprocessing** wurden daher alle Zeilen mit fehlenden Werten entfernt, was die Datenverteilung möglicherweise verzerrt hat.  
 
@@ -35,12 +35,15 @@ Darüber hinaus blieben zahlreiche **Metadaten** ungenutzt, die potenziell zur V
 - **Zeitstempel der Veröffentlichung** – Mögliche saisonale Trends oder thematische Häufungen in bestimmten Zeiträumen.  
 - **Autor** – Bestimmte Autoren könnten auf spezifische Themen spezialisiert sein, was als zusätzliches Merkmal genutzt werden könnte.  
 
-Eine kurze Datenanalyse hat gezeigt, dass die Daten **sehr unausgewogen** sind. Themen wie *acq*, *earn*, *money*, *grain* und *wheat* sind stark vertreten, während Kategorien wie *meal-feed*, *lead* oder *fuel* weniger als zehnmal im Datensatz vorkommen. Diese **Datenungleichgewicht** kann zu verzerrten Vorhersagen führen, da das Modell dazu neigt, Mehrheitsklassen zu bevorzugen.  
+Eine kurze Datenanalyse hat gezeigt, dass die Daten **stark unausgewogen** sind. Themen wie *acq*, *earn*, *money*, *grain* und *wheat* sind stark vertreten, während Kategorien wie *meal-feed*, *lead* oder *fuel* weniger als zehnmal im Datensatz vorkommen. Diese **Datenungleichgewicht** kann zu verzerrten Vorhersagen führen, da das Modell dazu neigt, Mehrheitsklassen zu bevorzugen.  
 
-Im weiteren Verlauf der Bearbeitung könnte ein **Deep-Learning-Algorithmus** getestet werden, sofern mehr Zeit zur Verfügung stünde.  
-Mögliche Ansätze wären der Einsatz von **BERT** oder **LSTM** für die Textklassifikation, da sowohl wissenschaftliche Arbeiten als auch Blogeinträge deren hohe Zuverlässigkeit in ähnlichen Anwendungsfällen hervorheben.  
+### **Mögliche Verbesserungen**  
+Im weiteren Verlauf der Bearbeitung könnte der Einsatz von **Deep-Learning-Algorithmen** in Betracht gezogen werden, sofern mehr Zeit zur Verfügung stünde.  
+Vielversprechende Ansätze wären:  
+- **BERT** (Bidirectional Encoder Representations from Transformers): Ein leistungsstarkes Modell für die Verarbeitung natürlicher Sprache, das kontextbezogene Wortrepräsentationen nutzt und somit besonders geeignet für die semantische Analyse von Texten ist.  
+- **LSTM** (Long Short-Term Memory): Ein rekurrentes neuronales Netz (RNN), das speziell für die Verarbeitung längerer Textsequenzen entwickelt wurde. LSTMs sind in der Lage, sich über längere Passagen hinweg relevante Informationen zu merken, was sie besonders nützlich für die Analyse von zusammenhängenden Texten macht.  
 
-Während **BERT** kontextbezogene Wortrepräsentationen nutzt und somit besonders leistungsfähig bei der Erkennung semantischer Zusammenhänge ist, bietet sich **LSTM (Long Short-Term Memory)** speziell für die Verarbeitung längerer Textsequenzen an. LSTMs können sich über längere Textabschnitte hinweg Informationen merken und sind daher für die Analyse von zusammenhängenden Texten geeignet.  
+Eine detaillierte Evaluierung könnte zeigen, inwiefern der Einsatz von **BERT** oder **LSTM** die Klassifikationsgenauigkeit im Vergleich zu klassischen Machine-Learning-Ansätzen verbessert.  
 
-Eine detaillierte Evaluierung könnte zeigen, inwiefern **BERT** oder **LSTM** im Vergleich zu klassischen Machine-Learning-Ansätzen die Klassifikationsgenauigkeit verbessern.  
-
+### **Code-Optimierung**  
+Eine weitere Optimierung wäre es, den bestehenden Code in eine **Klassenstruktur** zu überführen, anstatt einzelne Funktionen zu nutzen. Dadurch könnte die Modularität und Wiederverwendbarkeit des Codes verbessert werden.
