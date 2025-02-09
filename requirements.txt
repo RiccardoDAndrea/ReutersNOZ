@@ -1,0 +1,9 @@
+beautifulsoup4==4.13.3
+ipykernel==6.29.5
+matplotlib==3.10.0
+numpy==2.0.2
+pandas==2.2.3
+scikit-learn==1.6.1
+seaborn==0.13.2
+wordcloud==1.9.4
+nltk==3.9.1

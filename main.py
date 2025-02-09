@@ -1,6 +1,5 @@
-import glob
-import pandas as pd
-import re
+import glob,re
+import pandas as pd 
 from bs4 import BeautifulSoup
 import pandas as pd
 
