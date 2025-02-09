@@ -1,7 +1,6 @@
 # venv
 .env
 venv
+
 #Data
-reuters21578
-reuters_articles_with_split.csv
-*.csv
+nltk_data
