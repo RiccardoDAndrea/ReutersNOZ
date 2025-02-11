@@ -21,7 +21,6 @@ Die entwickelten Modelle konnten Texte erfolgreich erkennen und den entsprechend
 - Themenbereiche, die in den Trainingsdaten seltener vorkamen, wurden nicht zuverlässig vorhergesagt.
 - Bei längeren Texten kam es vereinzelt zu Fehlklassifikationen. Diese waren jedoch nicht vollkommen unzutreffend – beispielsweise wurden die Kategorien "Money" und "Earn" gelegentlich verwechselt, da sie thematisch eng miteinander verbunden sind.
 Diese Erkenntnisse liefern wertvolle Ansätze für mögliche Optimierungen in zukünftigen Iterationen des Modells.
-Zu lange texte wiesen drauf hin das die Klassifikation nicht zutreffen waren da keine Vorerhsage getroffen wurden
 
 ## **Verbesserungspotenzial**  
 
@@ -41,7 +40,7 @@ Eine kurze Datenanalyse hat gezeigt, dass die Daten **stark unausgewogen** sind.
 Im weiteren Verlauf der Bearbeitung könnte der Einsatz von **Deep-Learning-Algorithmen** in Betracht gezogen werden, sofern mehr Zeit zur Verfügung stünde.  
 Vielversprechende Ansätze wären:  
 - **BERT** (Bidirectional Encoder Representations from Transformers): Ein leistungsstarkes Modell für die Verarbeitung natürlicher Sprache, das kontextbezogene Wortrepräsentationen nutzt und somit besonders geeignet für die semantische Analyse von Texten ist.  
-- **LSTM** (Long Short-Term Memory): Ein rekurrentes neuronales Netz (RNN), das speziell für die Verarbeitung längerer Textsequenzen entwickelt wurde. LSTMs sind in der Lage, sich über längere Passagen hinweg relevante Informationen zu merken, was sie besonders nützlich für die Analyse von zusammenhängenden Texten macht.  
+- **LSTM** (Long Short-Term Memory): Ein rekurrentes neuronales Netz (RNN), das speziell für die Verarbeitung längerer Textsequenzen entwickelt wurde. 
 
 Eine detaillierte Evaluierung könnte zeigen, inwiefern der Einsatz von **BERT** oder **LSTM** die Klassifikationsgenauigkeit im Vergleich zu klassischen Machine-Learning-Ansätzen verbessert.  
 
